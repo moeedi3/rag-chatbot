@@ -3,10 +3,16 @@ import re
 
 def clean_text(text):
 
-    # remove extra newlines
+    # Remove line breaks
     text = text.replace("\n", " ")
 
-    # remove repeated spaces
+    # Remove strange bullet characters
+    text = text.replace("\uf0b7", " ")
+
+    # Remove tabs
+    text = text.replace("\t", " ")
+
+    # Remove extra spaces
     text = re.sub(r"\s+", " ", text)
 
     return text.strip()
