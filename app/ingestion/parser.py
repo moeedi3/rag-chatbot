@@ -1,6 +1,6 @@
 import fitz
 import pdfplumber
-from cleaner import clean_text
+from app.ingestion.cleaner import clean_text
 
 
 def parse_document(pdf_path):
@@ -13,6 +13,7 @@ def parse_document(pdf_path):
     for page_num, page in enumerate(doc):
 
         text = page.get_text()
+        print("FOR TESTING ****** "+text)
 
         if text.strip():
 
@@ -45,14 +46,3 @@ def parse_document(pdf_path):
                 })
 
     return parsed_data
-
-
-if __name__ == "__main__":
-
-    result = parse_document(
-        "data/pdfs/Enterprise_RAG_Assistant_Client_Brief.pdf"
-    )
-
-    for item in result:
-        print(item)
-        print("-" * 50)
