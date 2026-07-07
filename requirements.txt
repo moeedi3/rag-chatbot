@@ -9,3 +9,4 @@ rank_bm25
 sentence-transformers
 faiss-cpu
 pymupdf
+python-multipart
