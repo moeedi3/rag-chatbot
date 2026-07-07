@@ -34,6 +34,8 @@ def generate_answer(question, retrieved_chunks):
 
     You are allowed to summarize and infer information from the text.
 
+    If you dont find answer just say I cannot find this information in the uploaded documents.
+
     Document:
 
     {context}
