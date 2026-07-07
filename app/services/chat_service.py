@@ -10,6 +10,11 @@ def ask_question(question):
     index = load_index()
 
     chunks = get_all_chunks()
+    if len(chunks) == 0:
+        return {
+            "answer": "No documents have been uploaded yet. Please ask an administrator to upload documents before asking questions.",
+            "sources": [],
+        }
 
     retrieved_chunks = search(question, index, chunks)
 
