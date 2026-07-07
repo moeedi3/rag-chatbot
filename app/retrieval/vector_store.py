@@ -1,15 +1,19 @@
 import faiss
 import numpy as np
 
+EMBEDDING_DIM = 384
+
 
 def create_index(vectors):
 
-    vectors = np.array(vectors, dtype="float32")
+    if len(vectors) == 0:
+        return faiss.IndexFlatL2(EMBEDDING_DIM)
+
+    vectors = np.asarray(vectors).astype("float32")
 
     dimension = vectors.shape[1]
 
     index = faiss.IndexFlatL2(dimension)
-
     index.add(vectors)
 
     return index
